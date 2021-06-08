@@ -1,0 +1,2 @@
+// App name
+export const APP_NAME: string = 'Anydoc'
