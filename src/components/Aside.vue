@@ -4,9 +4,9 @@
     class="el-menu-vertical"
     @select="handleSelect"
     :collapse="isCollapse"
-    background-color="#545c64"
+    background-color="#34495e"
     text-color="#fff"
-    active-text-color="#ffd04b"
+    active-text-color="#41b883"
   >
     <el-menu-item index="-1"><Brand /></el-menu-item>
     <el-menu-item

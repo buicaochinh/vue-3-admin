@@ -18,7 +18,7 @@ export default defineComponent({
 .brand {
   height: 61px;
   text-align: center;
-  color: #fff;
+  color: #41b883;
   font-size: 1.5rem;
   font-weight: 600;
 }
