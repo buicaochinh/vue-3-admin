@@ -1,37 +1,51 @@
 <template>
-  <Brand />
   <el-menu
     default-active="1"
     class="el-menu-vertical"
     @select="handleSelect"
     :collapse="isCollapse"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
   >
-    <el-menu-item index="0">
-      <i class="el-icon-menu"></i>
-      <template #title>Dashboard</template>
-    </el-menu-item>
-    <el-menu-item index="1">
-      <i class="el-icon-document"></i>
-      <template #title>Documents</template>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <i class="el-icon-setting"></i>
-      <template #title>Users</template>
+    <el-menu-item index="-1"><Brand /></el-menu-item>
+    <el-menu-item
+      v-for="(item, index) in navItemList"
+      :key="index"
+      :index="`${index}`"
+    >
+      <i :class="item.icon"></i>
+      <template #title>{{
+        item.name.charAt(0).toUpperCase() + item.name.slice(1)
+      }}</template>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Brand from "./Brand.vue"
+import Brand from "./Brand.vue";
+import { NAV_ITEM_LIST } from "../cores/settings"
+import { DASHBOARD_NAME } from "../cores/routes"
+import { useRouter } from "vue-router";
 
 const useSidebar = () => {
-  //Methods
-  const handleSelect: Function = () => console.log("handleOpen");
+  // States
+  const navItemList = NAV_ITEM_LIST;
+  const router = useRouter();
+  // Methods
+  const handleSelect: Function = (key: string) => {
+    if (key !== "-1") {
+      router.push({ name: navItemList[parseInt(key)].name });
+    } else if (key === "-1") {
+      router.push({ name: DASHBOARD_NAME });
+    }
+  };
 
   // return
   return {
-    handleSelect
+    handleSelect,
+    navItemList,
   };
 };
 
@@ -46,3 +60,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.el-menu-vertical {
+  height: 100vh;
+}
+</style>
