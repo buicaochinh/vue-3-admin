@@ -8,7 +8,10 @@
     text-color="#fff"
     active-text-color="#41b883"
   >
-    <el-menu-item index="-1"><Brand /></el-menu-item>
+    <el-menu-item index="-1" class="full-brand">
+      <img src="../assets/logo.svg" alt="logo" width="30" height="56" />
+      <Brand v-if="!isCollapse" />
+    </el-menu-item>
     <el-menu-item
       v-for="(item, index) in navItemList"
       :key="index"
@@ -64,5 +67,9 @@ export default defineComponent({
 <style scoped>
 .el-menu-vertical {
   height: 100vh;
+}
+
+.full-brand {
+  display: flex;
 }
 </style>

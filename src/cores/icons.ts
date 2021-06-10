@@ -1,3 +1,5 @@
 export const DASHBOARD_ICON: string = 'el-icon-menu'
 export const DOCUMENT_ICON: string = 'el-icon-document'
 export const USER_ICON: string = 'el-icon-user'
+export const COLLAPSE_ICON_FOLD: string = 'el-icon-s-fold'
+export const COLLAPSE_ICON_UNFOLD: string = 'el-icon-s-unfold'

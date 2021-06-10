@@ -5,7 +5,9 @@
     /></el-aside>
     <el-container>
       <el-header
-        ><Header @change-collapse="changeIsCollapse($event)"
+        ><Header
+          :isCollapse="isCollapse"
+          @change-collapse="changeIsCollapse($event)"
       /></el-header>
       <el-main><router-view /></el-main>
       <el-footer><Footer /></el-footer>
